@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "errors": [],
+  "checks": [
+    "ordinary routes",
+    "timed best",
+    "ghost",
+    "pause/reset policy",
+    "camera movement basis",
+    "pressure weights",
+    "soil recovery",
+    "repeated restart",
+    "phone layout",
+    "simultaneous touch",
+    "single-tap action",
+    "hints",
+    "save/load"
+  ]
+}

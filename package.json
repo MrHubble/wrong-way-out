@@ -1,0 +1,34 @@
+{
+  "name": "the-wrong-way-out",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:browser": "node tests/browser.mjs",
+    "test:extended": "node tests/extended.mjs",
+    "test:visibility": "node tests/visibility.mjs",
+    "test:production": "node tests/production.mjs",
+    "format": "prettier --write src tests package.json tsconfig.json vite.config.ts",
+    "format:check": "prettier --check src tests package.json tsconfig.json vite.config.ts"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/three": "^0.186.0",
+    "prettier": "^3.9.9",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  }
+}

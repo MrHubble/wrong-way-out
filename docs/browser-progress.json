@@ -1,0 +1,54 @@
+{
+  "state": {
+    "screen": "win",
+    "index": 4,
+    "feet": {
+      "x": -2.011263370513916,
+      "y": 0.6041276693344116,
+      "z": -3.288330316543579
+    },
+    "angle": 0.48,
+    "grounded": false,
+    "action": {
+      "label": "Look around. Try something.",
+      "kind": "none"
+    },
+    "shovel": false,
+    "soil": {
+      "patches": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "piles": [],
+      "carried": 0,
+      "total": 12
+    },
+    "props": [
+      {
+        "kind": "crate",
+        "position": {
+          "x": -0.5,
+          "y": 0.5600000023841858,
+          "z": 1.5
+        },
+        "carried": false
+      }
+    ],
+    "plate": false,
+    "won": true,
+    "timed": false,
+    "valid": false,
+    "elapsed": 6.112,
+    "ghostVisible": false,
+    "completed": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "errors": []
+}
