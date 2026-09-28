@@ -64,9 +64,9 @@ This repository belongs to **MrHubble/wrong-way-out**. The studio homepage is se
 - Build: `npm run build`
 - Output: `dist`
 - Asset base: `/`
-- Intended Pages project: `wrong-way-out`
+- Intended Cloudflare Worker: `wrong-way-out` (Workers Static Assets)
 - Intended custom domain: `wrong-way-out.leotoby.com`
 
-Project and domain are intended configuration until independently verified. The replay tests reuse only the progress genuinely earned by `test:browser`, saved under ignored `test-results/`. The route tests drive normal keyboard input and use controlled browser time; they never teleport or mutate game state.
+The root [`wrangler.jsonc`](wrangler.jsonc) serves `dist/` as static assets without a Worker script. Connect this repository's `main` branch to Cloudflare Workers Builds in the `hi@leotoby.com` account; use `npm run build` and `npx wrangler deploy`. The Worker and domain are intended configuration until independently verified. See [hosting setup](docs/hosting.md) for deployment and smoke-test steps. The replay tests reuse only the progress genuinely earned by `test:browser`, saved under ignored `test-results/`. The route tests drive normal keyboard input and use controlled browser time; they never teleport or mutate game state.
 
 See [design notes](docs/design.md), [verification](docs/verification.md), and [studio handoff](docs/studio-handoff.md).
