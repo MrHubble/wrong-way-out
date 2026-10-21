@@ -1,0 +1,8 @@
+PASS trusted opposite-edge movement and action handlers both receive the hold
+PASS trusted cancellation releases actual held control state
+PASS short-height menu has real vertical overflow and pan-y ownership
+FAIL trusted native single-finger pan scrolls the menu without page zoom
+Error: trusted native single-finger pan scrolls the menu without page zoom
+    at check (file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:9:173)
+    at file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:23:2
+3/5 passed

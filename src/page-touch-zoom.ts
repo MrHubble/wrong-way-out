@@ -168,6 +168,14 @@ export function bindPageMenuActions(
   root: Document | HTMLElement = document,
 ) {
   const handled = new WeakSet<HTMLElement>();
+  const fingers = new Map<
+    number,
+    { button: HTMLElement; x: number; y: number; moved: boolean }
+  >();
+  window.addEventListener("blur", () => fingers.clear());
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) fingers.clear();
+  });
   const buttonFor = (target: EventTarget | null) =>
     target instanceof Element ? target.closest<HTMLElement>(selector) : null;
   root.addEventListener("pointerdown", ((event: PointerEvent) => {
@@ -176,16 +184,68 @@ export function bindPageMenuActions(
     handled.delete(button);
     if (
       event.pointerType !== "touch" ||
+      event.button !== 0 ||
       pageIsEnlarged() ||
       (button as HTMLButtonElement).disabled
     )
       return;
-    event.preventDefault();
     button.dataset.pageAction = "true";
     handled.add(button);
-    button.blur();
-    button.click();
+    // Do not prevent down or activate: this may be the start of a menu scroll.
+    fingers.set(event.pointerId, {
+      button,
+      x: event.clientX,
+      y: event.clientY,
+      moved: false,
+    });
   }) as EventListener);
+  root.addEventListener(
+    "pointermove",
+    ((event: PointerEvent) => {
+      const finger = fingers.get(event.pointerId);
+      if (
+        finger &&
+        Math.hypot(event.clientX - finger.x, event.clientY - finger.y) > 12
+      )
+        finger.moved = true;
+    }) as EventListener,
+    true,
+  );
+  root.addEventListener(
+    "pointercancel",
+    ((event: PointerEvent) => {
+      fingers.delete(event.pointerId);
+    }) as EventListener,
+    true,
+  );
+  root.addEventListener(
+    "pointerup",
+    ((event: PointerEvent) => {
+      const finger = fingers.get(event.pointerId);
+      fingers.delete(event.pointerId);
+      if (
+        !finger ||
+        finger.moved ||
+        pageIsEnlarged() ||
+        !finger.button.isConnected ||
+        (finger.button as HTMLButtonElement).disabled
+      )
+        return;
+      const r = finger.button.getBoundingClientRect();
+      if (
+        event.clientX < r.left ||
+        event.clientX > r.right ||
+        event.clientY < r.top ||
+        event.clientY > r.bottom
+      )
+        return;
+      event.preventDefault();
+      handled.add(finger.button);
+      finger.button.blur();
+      finger.button.click();
+    }) as EventListener,
+    true,
+  );
   root.addEventListener(
     "click",
     ((event: MouseEvent) => {

@@ -288,17 +288,64 @@ async function heldTransition(selector, desired, label) {
     b = await point(selector, 42);
   a.x = 20;
   a.y = 160;
+  await page.evaluate(() => {
+    window.__heldTrace = [];
+    if (!window.__heldTraceBound) {
+      window.__heldTraceBound = true;
+      for (const type of ["touchstart", "touchend", "touchcancel"])
+        window.addEventListener(
+          type,
+          (e) =>
+            window.__heldTrace.push({
+              type,
+              trusted: e.isTrusted,
+              touches: [...e.touches].map((t) => t.identifier),
+              changed: [...e.changedTouches].map((t) => t.identifier),
+            }),
+          { capture: true, passive: true },
+        );
+    }
+  });
+  await page
+    .locator(selector)
+    .first()
+    .evaluate((el) =>
+      el.addEventListener(
+        "touchend",
+        (e) =>
+          window.__heldTrace.push({
+            type: "touchend",
+            source: "button-direct",
+            trusted: e.isTrusted,
+            touches: [...e.touches].map((t) => t.identifier),
+            changed: [...e.changedTouches].map((t) => t.identifier),
+          }),
+        { capture: true, passive: true, once: true },
+      ),
+    );
   await send("touchStart", [a]);
   await send("touchStart", [a, b]);
+  await send("touchEnd", [b]);
   await expect(desired);
   const owned = await page.locator(cfg.canvas).evaluate((el) => {
     const e = new Event("gesturechange", { bubbles: true, cancelable: true });
     el.dispatchEvent(e);
     return e.defaultPrevented;
   });
+  const trace = await page.evaluate(() => window.__heldTrace),
+    starts = trace.filter((e) => e.type === "touchstart"),
+    end = trace.find((e) => e.type === "touchend");
+  const identities =
+    starts.length >= 2 &&
+    end?.trusted &&
+    end.touches.length === 1 &&
+    end.changed.length === 1 &&
+    end.touches[0] === starts[0].changed[0] &&
+    end.changed[0] === starts[1].changed[0];
   check(
-    `second-finger ${label} keeps browser ownership across state change`,
-    owned,
+    `second-finger ${label} releases its button while first finger retains ownership`,
+    owned && identities,
+    { owned, identities, trustedTouchTrace: trace },
   );
   await send("touchEnd");
 }
@@ -402,7 +449,23 @@ try {
     menuPolicy.ok,
     menuPolicy,
   );
-  if (cdp) await pinch("pause-menu");
+  if (cdp) {
+    await pinch("pause-menu");
+    const beforeButtonPinch = await state(),
+      bp = await point(game === "paper" ? "#menu-play" : cfg.resume);
+    await cdp.send("Input.synthesizePinchGesture", {
+      x: bp.x,
+      y: bp.y,
+      scaleFactor: 1.8,
+      relativeSpeed: 100,
+      gestureSourceType: "touch",
+    });
+    await wait(180);
+    check(
+      "trusted native pinch beginning over menu action neither zooms nor activates it",
+      (await state()) === beforeButtonPinch && (await snap()).scale === 1,
+    );
+  }
   // Exercise native controls and actual scroll container where available.
   if (game === "roof") {
     await page
@@ -567,6 +630,14 @@ try {
     await pinch("recovered-play");
     check("trusted Resume after recovery restores playable state", true);
   }
+  await page.locator(cfg.pause).first().click();
+  await expect(game === "paper" ? "menu" : "pause");
+  await page.locator(cfg.resume).first().click();
+  await expect(cfg.play);
+  check(
+    "trusted mouse menu actions remain usable after touch deduplication",
+    true,
+  );
   // Source-level existing result UI is protected by the same unconditional root policy;
   // no hidden result is injected to manufacture a gameplay completion.
   const bounds = await page.evaluate(

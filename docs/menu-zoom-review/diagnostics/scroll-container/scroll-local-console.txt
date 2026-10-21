@@ -1,0 +1,7 @@
+PASS trusted opposite-edge movement and action handlers both receive the hold
+PASS trusted cancellation releases actual held control state
+FAIL short-height menu has real vertical overflow and pan-y ownership
+Error: short-height menu has real vertical overflow and pan-y ownership
+    at check (file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:9:173)
+    at file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:18:2
+2/4 passed

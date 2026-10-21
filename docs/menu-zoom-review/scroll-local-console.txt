@@ -1,0 +1,10 @@
+PASS trusted opposite-edge movement and action handlers both receive the hold
+PASS trusted cancellation releases actual held control state
+PASS short-height menu has real vertical overflow and pan-y ownership
+{"anchor":{"x":87.60000000000001,"y":101.703125,"id":51,"distance":70},"viewport":{"width":390,"height":260,"left":0,"top":0,"scale":1}}
+PASS trusted native single-finger pan scrolls the menu without page zoom
+PASS scroll path retains trusted uncancelled single-touch moves
+PASS scrolling menu exposes a real enabled button for the swipe-start probe
+PASS trusted swipe beginning on a menu button scrolls without activating it
+PASS menu scrolling adds no page errors
+8/8 passed

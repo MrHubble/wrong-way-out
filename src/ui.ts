@@ -1,4 +1,4 @@
-import { pageIsEnlarged } from "./page-touch-zoom";
+import { pageIsEnlarged, bindPageMenuActions } from "./page-touch-zoom";
 import { levels } from "./levels";
 import { formatTime, type Save } from "./rules";
 export type Screen =
@@ -9,21 +9,8 @@ export class UI {
   hintStage = 0;
   previous: Screen = "title";
   messageUntil = 0;
-  private touchHandled = new WeakSet<HTMLElement>();
   constructor(public onAction: (action: string) => void) {
-    this.root.addEventListener("pointerdown", (e) => {
-      const button = (e.target as HTMLElement).closest<HTMLButtonElement>(
-        "[data-action]",
-      );
-      if (!button) return;
-      this.touchHandled.delete(button);
-      if (e.pointerType !== "touch") return;
-      if (pageIsEnlarged() || button.disabled || button.dataset.key) return;
-      e.preventDefault();
-      this.touchHandled.add(button);
-      button.blur();
-      this.onAction(button.dataset.action!);
-    });
+    bindPageMenuActions("[data-action]:not([data-key])", this.root);
     this.root.addEventListener("click", (e) => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>(
         "[data-action]",
@@ -32,7 +19,6 @@ export class UI {
         b &&
         !b.disabled &&
         !pageIsEnlarged() &&
-        !(e.detail > 0 && this.touchHandled.has(b)) &&
         !(b.dataset.action === "interact" && e.detail > 0)
       )
         this.onAction(b.dataset.action!);

@@ -1,0 +1,54 @@
+{
+  "game": "wrong",
+  "date": "2026-10-21T03:30:51.440Z",
+  "base": "http://127.0.0.1:50554/",
+  "browser": "156.0.8078.47",
+  "method": "Trusted Chrome native touch scroll synthesis and opposite-edge CDP controls; no game-state injection or performance claims",
+  "checks": [
+    {
+      "label": "trusted opposite-edge movement and action handlers both receive the hold",
+      "ok": true
+    },
+    {
+      "label": "trusted cancellation releases actual held control state",
+      "ok": true
+    },
+    {
+      "label": "short-height menu has real vertical overflow and pan-y ownership",
+      "ok": true,
+      "detail": {
+        "top": 0,
+        "height": 235,
+        "total": 430,
+        "rect": {
+          "x": 16,
+          "y": 11.703125,
+          "width": 358,
+          "height": 236.59375
+        },
+        "touchAction": "pan-y"
+      }
+    },
+    {
+      "label": "scroll verification completes",
+      "ok": false,
+      "detail": "cdpSession.send: Protocol error (Input.synthesizeScrollGesture): Position out of bounds\n    at /private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:21:12"
+    }
+  ],
+  "observations": {
+    "scrollBefore": {
+      "top": 0,
+      "height": 235,
+      "total": 430,
+      "rect": {
+        "x": 16,
+        "y": 11.703125,
+        "width": 358,
+        "height": 236.59375
+      },
+      "touchAction": "pan-y"
+    }
+  },
+  "errors": [],
+  "exception": "cdpSession.send: Protocol error (Input.synthesizeScrollGesture): Position out of bounds\n    at /private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:21:12"
+}

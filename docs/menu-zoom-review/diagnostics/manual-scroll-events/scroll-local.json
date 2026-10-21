@@ -1,0 +1,132 @@
+{
+  "game": "wrong",
+  "date": "2026-10-21T03:29:03.288Z",
+  "base": "http://127.0.0.1:50435/",
+  "browser": "156.0.8078.47",
+  "method": "Trusted Chrome single-finger CDP scroll and opposite-edge controls; no game-state injection or performance claims",
+  "checks": [
+    {
+      "label": "trusted opposite-edge movement and action handlers both receive the hold",
+      "ok": true
+    },
+    {
+      "label": "trusted cancellation releases actual held control state",
+      "ok": true
+    },
+    {
+      "label": "short-height menu has real vertical overflow and pan-y ownership",
+      "ok": true,
+      "detail": {
+        "top": 0,
+        "height": 235,
+        "total": 430,
+        "rect": {
+          "x": 16,
+          "y": 11.703125,
+          "width": 358,
+          "height": 236.59375
+        },
+        "touchAction": "pan-y"
+      }
+    },
+    {
+      "label": "trusted native single-finger pan scrolls the menu without page zoom",
+      "ok": false,
+      "detail": {
+        "before": {
+          "top": 0,
+          "height": 235,
+          "total": 430,
+          "rect": {
+            "x": 16,
+            "y": 11.703125,
+            "width": 358,
+            "height": 236.59375
+          },
+          "touchAction": "pan-y"
+        },
+        "after": {
+          "top": 0,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "label": "scroll verification completes",
+      "ok": false,
+      "detail": "Error: trusted native single-finger pan scrolls the menu without page zoom\n    at check (file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:9:173)\n    at file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:23:2"
+    }
+  ],
+  "observations": {
+    "scrollBefore": {
+      "top": 0,
+      "height": 235,
+      "total": 430,
+      "rect": {
+        "x": 16,
+        "y": 11.703125,
+        "width": 358,
+        "height": 236.59375
+      },
+      "touchAction": "pan-y"
+    },
+    "scrollAfter": {
+      "top": 0,
+      "scale": 1
+    },
+    "trustedTouches": [
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      }
+    ]
+  },
+  "errors": [],
+  "exception": "Error: trusted native single-finger pan scrolls the menu without page zoom\n    at check (file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:9:173)\n    at file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:23:2"
+}

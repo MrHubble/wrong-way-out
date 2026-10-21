@@ -1,0 +1,232 @@
+{
+  "game": "wrong",
+  "date": "2026-10-21T03:49:06.735Z",
+  "base": "http://127.0.0.1:51837/",
+  "browser": "156.0.8078.47",
+  "method": "Trusted Chrome native touch scroll synthesis and opposite-edge CDP controls; no game-state injection or performance claims",
+  "checks": [
+    {
+      "label": "trusted opposite-edge movement and action handlers both receive the hold",
+      "ok": true
+    },
+    {
+      "label": "trusted cancellation releases actual held control state",
+      "ok": true
+    },
+    {
+      "label": "short-height menu has real vertical overflow and pan-y ownership",
+      "ok": true,
+      "detail": {
+        "top": 0,
+        "height": 235,
+        "total": 430,
+        "rect": {
+          "x": 16,
+          "y": 11.703125,
+          "width": 358,
+          "height": 236.59375
+        },
+        "touchAction": "pan-y",
+        "viewport": {
+          "width": 390,
+          "height": 260,
+          "left": 0,
+          "top": 0,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "label": "trusted native single-finger pan scrolls the menu without page zoom",
+      "ok": true,
+      "detail": {
+        "before": {
+          "top": 0,
+          "height": 235,
+          "total": 430,
+          "rect": {
+            "x": 16,
+            "y": 11.703125,
+            "width": 358,
+            "height": 236.59375
+          },
+          "touchAction": "pan-y",
+          "viewport": {
+            "width": 390,
+            "height": 260,
+            "left": 0,
+            "top": 0,
+            "scale": 1
+          }
+        },
+        "after": {
+          "top": 71,
+          "scale": 1
+        }
+      }
+    },
+    {
+      "label": "scroll path retains trusted uncancelled single-touch moves",
+      "ok": true,
+      "detail": [
+        {
+          "trusted": true,
+          "prevented": false,
+          "count": 1
+        },
+        {
+          "trusted": true,
+          "prevented": false,
+          "count": 1
+        },
+        {
+          "trusted": true,
+          "prevented": false,
+          "count": 1
+        },
+        {
+          "trusted": true,
+          "prevented": false,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "label": "scrolling menu exposes a real enabled button for the swipe-start probe",
+      "ok": true,
+      "detail": {
+        "x": 195,
+        "y": 116.09375,
+        "text": "Keep exploring"
+      }
+    },
+    {
+      "label": "trusted swipe beginning on a menu button scrolls without activating it",
+      "ok": true,
+      "detail": {
+        "top": 10,
+        "scale": 1,
+        "clicks": []
+      }
+    },
+    {
+      "label": "menu scrolling adds no page errors",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "observations": {
+    "scrollBefore": {
+      "top": 0,
+      "height": 235,
+      "total": 430,
+      "rect": {
+        "x": 16,
+        "y": 11.703125,
+        "width": 358,
+        "height": 236.59375
+      },
+      "touchAction": "pan-y",
+      "viewport": {
+        "width": 390,
+        "height": 260,
+        "left": 0,
+        "top": 0,
+        "scale": 1
+      }
+    },
+    "anchor": {
+      "x": 87.60000000000001,
+      "y": 101.703125,
+      "id": 51,
+      "distance": 70
+    },
+    "layoutMetrics": {
+      "layoutViewport": {
+        "pageX": 0,
+        "pageY": 0,
+        "clientWidth": 390,
+        "clientHeight": 260
+      },
+      "visualViewport": {
+        "offsetX": 0,
+        "offsetY": 0,
+        "pageX": 0,
+        "pageY": 0,
+        "clientWidth": 390,
+        "clientHeight": 260,
+        "scale": 1,
+        "zoom": 1
+      },
+      "contentSize": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 260
+      },
+      "cssLayoutViewport": {
+        "pageX": 0,
+        "pageY": 0,
+        "clientWidth": 390,
+        "clientHeight": 260
+      },
+      "cssVisualViewport": {
+        "offsetX": 0,
+        "offsetY": 0,
+        "pageX": 0,
+        "pageY": 0,
+        "clientWidth": 390,
+        "clientHeight": 260,
+        "scale": 1,
+        "zoom": 1
+      },
+      "cssContentSize": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 260
+      }
+    },
+    "scrollAfter": {
+      "top": 71,
+      "scale": 1
+    },
+    "trustedTouches": [
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      },
+      {
+        "trusted": true,
+        "prevented": false,
+        "count": 1
+      }
+    ],
+    "buttonScroll": {
+      "before": 71,
+      "point": {
+        "x": 195,
+        "y": 116.09375,
+        "text": "Keep exploring"
+      },
+      "after": {
+        "top": 10,
+        "scale": 1,
+        "clicks": []
+      }
+    }
+  },
+  "errors": [],
+  "exception": null
+}

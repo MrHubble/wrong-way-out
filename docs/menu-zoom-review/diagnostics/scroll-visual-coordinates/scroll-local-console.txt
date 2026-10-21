@@ -1,0 +1,6 @@
+PASS trusted opposite-edge movement and action handlers both receive the hold
+PASS trusted cancellation releases actual held control state
+PASS short-height menu has real vertical overflow and pan-y ownership
+cdpSession.send: Protocol error (Input.synthesizeScrollGesture): Position out of bounds
+    at /private/tmp/wrong-way-out-zoom-20261021/tests/menu-scroll.mjs:21:12
+3/4 passed

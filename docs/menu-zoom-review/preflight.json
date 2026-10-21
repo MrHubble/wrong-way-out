@@ -1,0 +1,17 @@
+{
+  "base": "e86ef08b3841d737bfdc88141eb19b2bd56d4819",
+  "unit": 25,
+  "build": true,
+  "local": {
+    "chromium": {
+      "passed": 29,
+      "total": 29,
+      "browser": "156.0.8078.47"
+    },
+    "webkit": {
+      "passed": 16,
+      "total": 16,
+      "browser": "27.2"
+    }
+  }
+}

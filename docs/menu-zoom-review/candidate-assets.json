@@ -1,5 +1,6 @@
 {
   "base": "e86ef08b3841d737bfdc88141eb19b2bd56d4819",
+  "candidateParentSHA": "586241943f5154fbe0be145b1f564ad73301886e",
   "files": [
     {
       "file": "assets/index-BNy__Sy5.css",
@@ -7,9 +8,9 @@
       "sha256": "b2c05fae38a2190cbb8b1342d97de679d7e49746900e5fe5f5e15b67a6dcaa35"
     },
     {
-      "file": "assets/index-CinM0kfF.js",
-      "bytes": 45385,
-      "sha256": "8009b5bc6076e894d1a9390dc0a9bbe1f75786e00fa592f8ada8f697b6930ca7"
+      "file": "assets/index-BaJp4-Pb.js",
+      "bytes": 46239,
+      "sha256": "4b7b6dafb017e6552873b26c3b559fea08ad80549788383fe84fb9fd99e9f9ac"
     },
     {
       "file": "assets/physics-BR_-CEU_.js",
@@ -24,7 +25,7 @@
     {
       "file": "index.html",
       "bytes": 777,
-      "sha256": "9d27369a6b34bc9ccdece27f0fd4ede0f9185956e020ee2a7416f167ad98bd6e"
+      "sha256": "3cec418df41a4d30ea71243d1681c256195e38c3574b5638be551dec9ea9d393"
     }
   ]
 }

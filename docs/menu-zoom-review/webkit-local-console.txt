@@ -11,6 +11,7 @@ PASS labelled synthetic menu text Touch/Gesture policy stays enabled
 PASS trusted WebKit Resume tap responds
 PASS trusted WebKit Restart tap responds
 PASS normal play survives menu and reset transitions
+PASS trusted mouse menu actions remain usable after touch deduplication
 PASS all sampled game controls remain reachable at scale1
 PASS no new page or game errors (baseline renderer diagnostics kept separately)
-15/15 passed
+16/16 passed
