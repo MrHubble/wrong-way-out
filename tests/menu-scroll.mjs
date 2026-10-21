@@ -3,8 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import http from "node:http";
 const { chromium } = await import(
-  process.env.PLAYWRIGHT_MODULE ??
-    "/Users/mark/sites/watch-out-below/node_modules/@playwright/test/index.mjs"
+  process.env.PLAYWRIGHT_MODULE ?? "@playwright/test"
 );
 const name = JSON.parse(fs.readFileSync("package.json")).name,
   game = {

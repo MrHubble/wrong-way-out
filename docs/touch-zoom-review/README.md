@@ -1,3 +1,5 @@
+> Historical active-play-only verification. The [whole-page menu/recovery follow-up](../menu-zoom-review/README.md) supersedes the earlier menu zoom policy.
+
 # Active-play touch zoom protection — 21 October 2026
 
 Implemented from shipped remote main e211d265, with 22 unit tests, the production build and Prettier passing. The original checkout’s two unpublished Patient Garden commits remain separate and unchanged.

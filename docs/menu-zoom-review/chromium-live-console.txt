@@ -1,0 +1,30 @@
+PASS intro page protects zoom while permitting vertical pan
+PASS labelled synthetic intro Touch/Gesture policy preserves single touch and claims zoom
+PASS trusted native intro pinch keeps scale/offset stable
+PASS Start is gated on an already-enlarged intro
+PASS native inverse pinch recovers the pre-Start enlarged page without starting
+PASS second-finger Start releases its button while first finger retains ownership
+PASS play claims panning at scale1
+PASS eight rapid gameplay taps retain page scale
+PASS trusted native active-play pinch keeps scale/offset stable
+PASS desktop Escape pauses the actual game
+PASS desktop native Space activates the focused Resume control
+PASS second-finger Pause/menu releases its button while first finger retains ownership
+PASS pause/menu admits vertical pan but blocks page zoom
+PASS labelled synthetic menu text Touch/Gesture policy stays enabled
+PASS trusted native pause-menu pinch keeps scale/offset stable
+PASS trusted native pinch beginning over menu action neither zooms nor activates it
+PASS second-finger Resume releases its button while first finger retains ownership
+PASS second-finger Restart releases its button while first finger retains ownership
+PASS normal play survives menu and reset transitions
+PASS trusted opposite-edge controls and cancellation preserve page scale
+PASS injected enlarged browser state pauses and admits native recovery
+PASS labelled recovery probe does not cancel native gestures
+PASS Resume cannot bypass enlarged recovery
+PASS trusted native inverse pinch returns scale1 and stays paused
+PASS trusted native recovered-play pinch keeps scale/offset stable
+PASS trusted Resume after recovery restores playable state
+PASS trusted mouse menu actions remain usable after touch deduplication
+PASS all sampled game controls remain reachable at scale1
+PASS no new page or game errors (baseline renderer diagnostics kept separately)
+29/29 passed

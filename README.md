@@ -71,6 +71,6 @@ The root [`wrangler.jsonc`](wrangler.jsonc) serves `dist/` as static assets with
 
 See [design notes](docs/design.md), [verification](docs/verification.md), and [studio handoff](docs/studio-handoff.md).
 
-## Touch gestures during play
+## Browser page zoom
 
-Active gameplay owns browser page pinch/double-tap gestures while existing movement, Jump, contextual action and camera controls continue to receive Pointer Events. Menus retain native gestures and keyboard activation. [Verification and device limits](docs/touch-zoom-review/README.md).
+Loading, intro, menus, pause, result and play protect accidental browser pinch/double-tap zoom while native menu scrolling and form controls remain usable. Custom menu actions activate on an unmoved touch release, so a swipe can start on a button. An already-enlarged page pauses, permits a native pinch back out and stays paused until an explicit Resume. [Release evidence and physical Safari limits](docs/menu-zoom-review/README.md).

@@ -10,3 +10,5 @@
 - **Production URL:** https://wrong-way-out.leotoby.com/ — automatic Worker deployment, all five exact assets and live touch controls verified on 21 October 2026. [Release evidence](touch-zoom-review/README.md).
 
 The current release starts from shipped remote main e211d265. The original checkout’s two unpublished Patient Garden commits remain separate and unchanged; this release preserves the five shipped chapters. No studio files were changed by this game-repository update.
+
+Whole-page menu/recovery protection is verified in the [21 October follow-up](menu-zoom-review/README.md). The original unpublished Patient Garden branch state remains separate.

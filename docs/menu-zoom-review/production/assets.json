@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-21T03:52:06.240Z",
+  "domain": "https://wrong-way-out.leotoby.com/",
+  "commit": "ffa55518b14bf3e88a833ea4a98388fef40c3b3f",
+  "results": [
+    {
+      "file": "assets/index-BNy__Sy5.css",
+      "status": 200,
+      "bytes": 12485,
+      "sha256": "b2c05fae38a2190cbb8b1342d97de679d7e49746900e5fe5f5e15b67a6dcaa35",
+      "expectedSha256": "b2c05fae38a2190cbb8b1342d97de679d7e49746900e5fe5f5e15b67a6dcaa35",
+      "match": true
+    },
+    {
+      "file": "assets/index-BaJp4-Pb.js",
+      "status": 200,
+      "bytes": 46239,
+      "sha256": "4b7b6dafb017e6552873b26c3b559fea08ad80549788383fe84fb9fd99e9f9ac",
+      "expectedSha256": "4b7b6dafb017e6552873b26c3b559fea08ad80549788383fe84fb9fd99e9f9ac",
+      "match": true
+    },
+    {
+      "file": "assets/physics-BR_-CEU_.js",
+      "status": 200,
+      "bytes": 4332815,
+      "sha256": "a98b2b9d569daee4c17d3a51bbce1d55f41e6242395887291860dd10cc439c5e",
+      "expectedSha256": "a98b2b9d569daee4c17d3a51bbce1d55f41e6242395887291860dd10cc439c5e",
+      "match": true
+    },
+    {
+      "file": "assets/three-DslK1dLP.js",
+      "status": 200,
+      "bytes": 539233,
+      "sha256": "17d347e24a4fae6f4a20bb55902d5afd0c29c21c1db941074513b9b8b9381bc8",
+      "expectedSha256": "17d347e24a4fae6f4a20bb55902d5afd0c29c21c1db941074513b9b8b9381bc8",
+      "match": true
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 777,
+      "sha256": "3cec418df41a4d30ea71243d1681c256195e38c3574b5638be551dec9ea9d393",
+      "expectedSha256": "3cec418df41a4d30ea71243d1681c256195e38c3574b5638be551dec9ea9d393",
+      "match": true
+    }
+  ]
+}
