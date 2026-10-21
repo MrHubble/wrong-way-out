@@ -1,0 +1,30 @@
+{
+  "canonical": "https://wrong-way-out.leotoby.com/",
+  "files": [
+    {
+      "path": "/assets/index-5NSMbZCh.js",
+      "bytes": 44095,
+      "sha256": "088d1e0c25a906498104d8ecfc9f6c392aa29cda155724d3a7607b8cf11b8e54"
+    },
+    {
+      "path": "/assets/index-CZ7nT8y_.css",
+      "bytes": 12185,
+      "sha256": "faa137296a3303d32834afa0290ac3c80e02ce46c23dbc496695a29f2338f1bb"
+    },
+    {
+      "path": "/assets/physics-BR_-CEU_.js",
+      "bytes": 4332815,
+      "sha256": "a98b2b9d569daee4c17d3a51bbce1d55f41e6242395887291860dd10cc439c5e"
+    },
+    {
+      "path": "/assets/three-DslK1dLP.js",
+      "bytes": 539233,
+      "sha256": "17d347e24a4fae6f4a20bb55902d5afd0c29c21c1db941074513b9b8b9381bc8"
+    },
+    {
+      "path": "/index.html",
+      "bytes": 777,
+      "sha256": "36f0bdae0044090147805e51738b87e71431dff405f62d8c4be82b7a4c35d7e0"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# Active-play touch zoom protection — 21 October 2026
+
+Implemented from shipped remote main e211d265, with 22 unit tests and the production build passing. Publication receipts are added after automatic Worker deployment. The original checkout’s two unpublished Patient Garden commits remain separate and unchanged.
+
+Active game body and HUD ancestors use touch-action:none before contact. Explicitly non-passive owned Touch listeners and Safari Gesture listeners cover native double-tap/pinch paths without consuming Pointer Events. Title, pause, hints, settings and result menus remain native; unowned desktop trackpad gestures remain available. Focus loss, cancellation, Restart and screen transitions clear ownership. Window lifecycle listeners use noncapture and check their own target; a descendant blur regression preserves an already-owned play touch. Native-click HUD actions have touch pointer equivalents and compatibility-click deduplication reset on each new pointerdown. Existing joystick, Jump, context interaction and camera Pointer controls remain intact.
+
+The tests/touch-zoom.mjs harness serves compiled dist by default; ZOOM_URL selects the live canonical domain and ZOOM_ENGINE=webkit selects desktop Playwright WebKit. PLAYWRIGHT_MODULE may select an existing installation. Chrome uses trusted CDP multi-touch; WebKit supplies trusted single taps and separately labelled synthetic Touch/Gesture policy checks. Native iOS multi-touch is unavailable in desktop Playwright WebKit. No game state injection or performance profile is used. The optional Run test is conditional because the shipped game has no Run control.
+
+Local checks passed 14/14 Chrome and 10/10 WebKit. Physical iPhone/iPad Safari and hardware feel remain unmeasured. Raw .json.gz files retain all diagnostics, including the existing unadvertised favicon.ico404 separately. Canonical: https://wrong-way-out.leotoby.com/

@@ -8,7 +8,22 @@ export class UI {
   hintStage = 0;
   previous: Screen = "title";
   messageUntil = 0;
+  private touchHandled = new WeakSet<HTMLElement>();
   constructor(public onAction: (action: string) => void) {
+    this.root.addEventListener("pointerdown", (e) => {
+      const button = (e.target as HTMLElement).closest<HTMLButtonElement>(
+        "[data-action]",
+      );
+      if (!button) return;
+      this.touchHandled.delete(button);
+      if (e.pointerType !== "touch") return;
+      if (this.screen !== "play" || button.disabled || button.dataset.key)
+        return;
+      e.preventDefault();
+      this.touchHandled.add(button);
+      button.blur();
+      this.onAction(button.dataset.action!);
+    });
     this.root.addEventListener("click", (e) => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>(
         "[data-action]",
@@ -16,6 +31,7 @@ export class UI {
       if (
         b &&
         !b.disabled &&
+        !(e.detail > 0 && this.touchHandled.has(b)) &&
         !(b.dataset.action === "interact" && e.detail > 0)
       )
         this.onAction(b.dataset.action!);

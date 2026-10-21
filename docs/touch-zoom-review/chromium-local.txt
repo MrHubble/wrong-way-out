@@ -1,0 +1,15 @@
+PASS actual WebGL game loads
+PASS Chrome uses the Mac Metal renderer
+PASS native title tap enters active play with touch-action none
+PASS synthetic Safari owned-touch and Gesture policy cancels only play defaults
+PASS rapid native gameplay taps preserve viewport scale and all control bounds
+PASS real Chrome two-thumb movement and action reach the game
+PASS real multi-touch cancellation clears held control visuals
+PASS real Chrome pinch keeps page scale, offsets and control bounds fixed
+PASS opposite-edge second-thumb Pause/menu works while movement remains held
+PASS paused/menu gestures remain native and stale play ownership is released
+PASS native paused settings remain usable
+PASS normal gameplay resumes after the native menu
+PASS same document survives without page zoom or reload
+PASS no new gameplay errors (baseline diagnostics retained separately)
+14/14 passed

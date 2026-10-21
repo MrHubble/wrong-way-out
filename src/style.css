@@ -20,6 +20,10 @@ body {
   margin: 0;
   overflow: hidden;
 }
+body[data-screen="play"],
+body[data-screen="play"] #ui {
+  touch-action: none;
+}
 button,
 a {
   -webkit-tap-highlight-color: transparent;

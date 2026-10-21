@@ -1,4 +1,5 @@
 import "./style.css";
+import { installPlayTouchGuard } from "./play-touch-guard";
 import { initPhysics, Simulation } from "./simulation";
 import { View } from "./render";
 import { Input } from "./input";
@@ -32,7 +33,14 @@ async function main() {
   sound.muted = !save.audio;
   view.reduced = save.reduced;
   const ui = new UI(action);
+  const clearTouchGuard = installPlayTouchGuard(
+    () => ui.screen === "play",
+    (target) =>
+      target instanceof Node &&
+      (canvas.contains(target) || ui.root.contains(target)),
+  );
   function show(screen: Screen) {
+    clearTouchGuard();
     if (screen !== "play" && ui.screen === "play") clock.invalidate();
     view.mode = screen;
     ui.show(screen, save, sim.index, clock.timed, result);
