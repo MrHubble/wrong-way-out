@@ -1,3 +1,4 @@
+import { pageIsEnlarged } from "./page-touch-zoom";
 export class Input {
   keys = new Set<string>();
   pressed = new Set<string>();
@@ -7,6 +8,10 @@ export class Input {
   touchId: number | null = null;
   constructor() {
     addEventListener("keydown", (e) => {
+      if (pageIsEnlarged()) {
+        this.clear();
+        return;
+      }
       if (
         (e.target as HTMLElement)?.matches("input,textarea") ||
         ((e.target as HTMLElement)?.matches("button") &&
@@ -77,6 +82,7 @@ export class Input {
       knob.style.transform = `translate(${this.stick.x * 30}px,${this.stick.y * 30}px)`;
     };
     el.onpointerdown = (e) => {
+      if (pageIsEnlarged()) return;
       if (this.touchId !== null) return;
       this.touchId = e.pointerId;
       el.setPointerCapture(e.pointerId);
@@ -96,6 +102,7 @@ export class Input {
     el.onlostpointercapture = end;
     document.querySelectorAll<HTMLElement>("[data-key]").forEach((b) => {
       b.onpointerdown = (e) => {
+        if (pageIsEnlarged()) return;
         e.preventDefault();
         b.setPointerCapture(e.pointerId);
         this.pressed.add(b.dataset.key!);

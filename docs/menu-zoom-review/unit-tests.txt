@@ -1,0 +1,13 @@
+
+> the-wrong-way-out@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.2 /private/tmp/wrong-way-out-zoom-20261021
+
+
+ Test Files  2 passed (2)
+      Tests  22 passed (22)
+   Start at  14:18:48
+   Duration  909ms (tests 63%, transform 22%, import 12%, worker 3%)
+

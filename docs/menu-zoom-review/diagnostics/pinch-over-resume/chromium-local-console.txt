@@ -1,0 +1,21 @@
+PASS intro page protects zoom while permitting vertical pan
+PASS labelled synthetic intro Touch/Gesture policy preserves single touch and claims zoom
+PASS trusted native intro pinch keeps scale/offset stable
+PASS second-finger Start keeps browser ownership across state change
+PASS play claims panning at scale1
+PASS eight rapid gameplay taps retain page scale
+PASS trusted native active-play pinch keeps scale/offset stable
+PASS desktop Escape pauses the actual game
+PASS desktop Escape resumes at normal scale
+PASS second-finger Pause/menu keeps browser ownership across state change
+PASS pause/menu admits vertical pan but blocks page zoom
+PASS labelled synthetic menu text Touch/Gesture policy stays enabled
+PASS trusted native pause-menu pinch keeps scale/offset stable
+locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-action=resume]').first()[22m
+
+    at point (/private/tmp/wrong-way-out-zoom-20261021/tests/menu-zoom.mjs:20:66)
+    at heldTransition (/private/tmp/wrong-way-out-zoom-20261021/tests/menu-zoom.mjs:26:208)
+    at async file:///private/tmp/wrong-way-out-zoom-20261021/tests/menu-zoom.mjs:41:2
+13/14 passed

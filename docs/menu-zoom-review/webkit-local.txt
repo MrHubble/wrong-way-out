@@ -1,0 +1,16 @@
+PASS intro page protects zoom while permitting vertical pan
+PASS labelled synthetic intro Touch/Gesture policy preserves single touch and claims zoom
+PASS trusted WebKit Start tap responds
+PASS play claims panning at scale1
+PASS eight rapid gameplay taps retain page scale
+PASS desktop Escape pauses the actual game
+PASS desktop native Space activates the focused Resume control
+PASS trusted WebKit Pause/menu tap responds
+PASS pause/menu admits vertical pan but blocks page zoom
+PASS labelled synthetic menu text Touch/Gesture policy stays enabled
+PASS trusted WebKit Resume tap responds
+PASS trusted WebKit Restart tap responds
+PASS normal play survives menu and reset transitions
+PASS all sampled game controls remain reachable at scale1
+PASS no new page or game errors (baseline renderer diagnostics kept separately)
+15/15 passed

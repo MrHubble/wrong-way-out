@@ -1,5 +1,5 @@
 import "./style.css";
-import { installPlayTouchGuard } from "./play-touch-guard";
+import { installPageTouchZoom, pageIsEnlarged } from "./page-touch-zoom";
 import { initPhysics, Simulation } from "./simulation";
 import { View } from "./render";
 import { Input } from "./input";
@@ -17,6 +17,11 @@ const canvas = document.querySelector<HTMLCanvasElement>("#scene")!;
 const loading = document.querySelector<HTMLDivElement>("#ui")!;
 loading.innerHTML =
   '<div class="loading"><span class="brand-mark">↗</span><p>Making a little room for curiosity…</p></div>';
+let pauseForZoom = () => {};
+const pageTouch = installPageTouchZoom(
+  () => document.body.dataset.screen === "play",
+  () => pauseForZoom(),
+);
 async function main() {
   await initPhysics();
   let sim = new Simulation(0);
@@ -33,22 +38,19 @@ async function main() {
   sound.muted = !save.audio;
   view.reduced = save.reduced;
   const ui = new UI(action);
-  const clearTouchGuard = installPlayTouchGuard(
-    () => ui.screen === "play",
-    (target) =>
-      target instanceof Node &&
-      (canvas.contains(target) || ui.root.contains(target)),
-  );
+  pauseForZoom = () => show("pause");
   function show(screen: Screen) {
-    clearTouchGuard();
+    if (screen === "play" && pageIsEnlarged()) return;
     if (screen !== "play" && ui.screen === "play") clock.invalidate();
     view.mode = screen;
     ui.show(screen, save, sim.index, clock.timed, result);
     input.clear();
     input.attachTouch();
+    pageTouch.sync();
     requestAnimationFrame(() => view.resize());
   }
   function start(index: number, timed = false) {
+    if (pageIsEnlarged()) return;
     if (
       index < 0 ||
       index > 4 ||

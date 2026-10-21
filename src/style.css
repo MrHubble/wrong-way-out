@@ -985,3 +985,32 @@ kbd {
     bottom: 62px;
   }
 }
+
+/* Protect loading and every menu without consuming a vertical menu scroll. */
+html,
+body,
+.overlay,
+.screen,
+.modal,
+.menu-sheet,
+.loading,
+.builder-screen {
+  touch-action: pan-y;
+}
+body.game-playing {
+  touch-action: none;
+}
+/* An already-enlarged/restored page must admit a fresh native inverse pinch. */
+html.page-zoomed,
+html.page-zoomed body,
+html.page-zoomed body * {
+  touch-action: pan-x pan-y pinch-zoom !important;
+}
+
+/* Scrollable dialogs retain vertical pan at short viewport heights. */
+.dialog,
+.intro-card,
+.pause-card,
+.builder-card {
+  touch-action: pan-y;
+}

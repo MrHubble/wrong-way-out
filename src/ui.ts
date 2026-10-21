@@ -1,3 +1,4 @@
+import { pageIsEnlarged } from "./page-touch-zoom";
 import { levels } from "./levels";
 import { formatTime, type Save } from "./rules";
 export type Screen =
@@ -17,8 +18,7 @@ export class UI {
       if (!button) return;
       this.touchHandled.delete(button);
       if (e.pointerType !== "touch") return;
-      if (this.screen !== "play" || button.disabled || button.dataset.key)
-        return;
+      if (pageIsEnlarged() || button.disabled || button.dataset.key) return;
       e.preventDefault();
       this.touchHandled.add(button);
       button.blur();
@@ -31,6 +31,7 @@ export class UI {
       if (
         b &&
         !b.disabled &&
+        !pageIsEnlarged() &&
         !(e.detail > 0 && this.touchHandled.has(b)) &&
         !(b.dataset.action === "interact" && e.detail > 0)
       )
