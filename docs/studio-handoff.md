@@ -1,4 +1,4 @@
-# Future studio card
+# Studio handoff
 
 - **Title:** The Wrong Way Out
 - **Tagline:** There’s always another way.
@@ -7,6 +7,6 @@
 - **Look:** cream stone toy rooms, terracotta tiles, rounded wooden crates, leafy vines and a violet-clad adventurer with a straw hat.
 - **Gameplay:** relaxed spatial escape puzzles, reversible experiments, then optional timed replays with a personal-best ghost.
 - **Screenshot:** `screenshots/gameplay-1200x750.webp` (actual browser gameplay, not concept art).
-- **Production URL:** unverified. Intended domain: `wrong-way-out.leotoby.com`.
+- **Production URL:** https://wrong-way-out.leotoby.com/ — automatic Worker deployment, all five exact assets and live touch controls verified on 21 October 2026. [Release evidence](touch-zoom-review/README.md).
 
-Do not publish the intended URL as a live game link before deployment verification. The LeoToby homepage has not been changed.
+The current release starts from shipped remote main e211d265. The original checkout’s two unpublished Patient Garden commits remain separate and unchanged; this release preserves the five shipped chapters. No studio files were changed by this game-repository update.

@@ -1,0 +1,11 @@
+PASS actual WebGL game loads
+PASS native title tap enters active play with touch-action none
+PASS synthetic Safari owned-touch and Gesture policy cancels only play defaults
+PASS rapid native gameplay taps preserve viewport scale and all control bounds
+PASS WebKit native touch action still responds
+PASS paused/menu gestures remain native and stale play ownership is released
+PASS native paused settings remain usable
+PASS normal gameplay resumes after the native menu
+PASS same document survives without page zoom or reload
+PASS no new gameplay errors (baseline diagnostics retained separately)
+10/10 passed
